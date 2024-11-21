@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      hello word
+     <h1>hello word</h1>
     </>
   )
 }
