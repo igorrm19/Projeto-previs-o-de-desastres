@@ -1,3 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+@tailwind typography;
+@tailwind forms;
+@tailwind aspect-ratio;
+@tailwind line-clamp;
+@tailwind animations;
+@tailwind transitions;
+@tailwind filters;
+@tailwind gradients;
+@tailwind shadows;
+@tailwind typography;
+@tailwind custom-properties;
+@tailwind scroll-snap;  
+
+
 *{
     margin: 0;
     padding: 0;
