@@ -1,4 +1,5 @@
-import LoginPage from './features/login/pages/LoginPage'
+
+import AppRoutes from './routes/AppRoutes'
 import './styles/App.css'
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
   return (
     <>
      <h1>hello word</h1>
-     <LoginPage />
+     <AppRoutes />
     </>
   )
 }

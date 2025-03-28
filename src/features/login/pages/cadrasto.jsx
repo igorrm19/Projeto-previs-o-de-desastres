@@ -1,11 +1,10 @@
-const CadrastoPage = () => {
 
-
-    return (
-        <>
-        
-        </>
-    )
+ function cadrastoPage (){
+  return(
+    <>
+      <h1>Cadrasto</h1>
+    </>
+  )
 }
 
-export default CadrastoPage;
+export default cadrastoPage;
