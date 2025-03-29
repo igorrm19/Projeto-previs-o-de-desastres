@@ -9,3 +9,6 @@
 
 
   Alem disso melhorar minhas habilidaes em desenvolvimento web de forma geral desde a criação de uma arquitetura adequada ate o desenvolvimento em se, melhorando minhas habilidades tambem em analise de dados criação de algoritimos de ia e comunicação entre diferentes serviços.
+
+
+https://docs.google.com/document/d/1-ctOFyhfv6aM-GZrhkUOoDlANPN5pliXJhFy_jJqySo/edit?usp=sharing
