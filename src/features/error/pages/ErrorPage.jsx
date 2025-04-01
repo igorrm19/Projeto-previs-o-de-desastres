@@ -1,11 +1,19 @@
+import SvdIlustration from "../components/svdIlustration";
 
 function ErrorPage() {
 
   return (
     <>
-        <h1>404</h1>
-        <h2>Pagina não encontrada</h2>
-        <p>Desculpe, essa pagina não existe</p>
+      <main className="bg-fuchsia-900  min-h-screen flex items-center justify-center">
+        <div className="absolute">
+          <SvdIlustration />
+        </div>
+        <div className="absolute">
+          <h1>404</h1>
+          <p>Page Not Found</p>
+          <button>Back for home</button>
+        </div>
+      </main>
     </>
   );
 }
