@@ -6,7 +6,7 @@ const AppRoutes = () => {
     return (
         <Router>
           <Routes>
-              {RotaAutentic}
+              {RotaAutentic}      
               <Route path="*" element={<ErrorPage/>}/>
           </Routes>
         </Router>
