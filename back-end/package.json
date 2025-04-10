@@ -1,0 +1,28 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "back-end-project-microsservises",
+  "main": "ap.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ap.js",
+    "dev": "nodemon ap.js",
+    "swagger": "node_modules/.bin/swagger-jsdoc -d swaggerDef.js -o swagger.json",
+    "swagger:serve": "node_modules/.bin/swagger-ui-express -d swagger.json -o swagger-ui.html",
+    "swagger:open": "node_modules/.bin/open swagger-ui.html",
+    "swagger:generate": "npm run swagger && npm run swagger:serve && npm run swagger:open"
+  },
+  "author": "igorrm19",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.9",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
