@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ap.js",
-    "dev": "nodemon ap.js",
+    "dev": "nodemon back-end/ap.js",
     "swagger": "node_modules/.bin/swagger-jsdoc -d swaggerDef.js -o swagger.json",
     "swagger:serve": "node_modules/.bin/swagger-ui-express -d swagger.json -o swagger-ui.html",
     "swagger:open": "node_modules/.bin/open swagger-ui.html",
