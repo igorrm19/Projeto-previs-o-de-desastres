@@ -7,7 +7,6 @@ import swaggerOptions from './swagger.js';
 import bodyParser from 'body-parser';
 
 
-
 const app = express();
 Routes(app);
 
@@ -20,6 +19,7 @@ app.use(cors(
 
 app.use(bodyParser.json());
 
+
 const user = [
     {id:1, nome: "Igor", idade: 22},
     {id:2, nome: "Briza", idade: 19},
@@ -31,7 +31,8 @@ app.use(express.json());
 app.get('/user', (req, res) => {
     res.json(user);
    
-})
+});
+
 
 app.get('/user/:id', (req, res) => {
     const Usuarios = user.filter(value => value.id == req.params.id);
@@ -48,12 +49,14 @@ app.get('/user/:id', (req, res) => {
    
 });
 
+
 app.post('/user', (req, res) => {
 
     const client = req.body
     user.push(client);
     res.json(client);
 });
+
 
 
 app.put("/user/:id", (req, res) => {
@@ -65,6 +68,16 @@ app.put("/user/:id", (req, res) => {
     userClient[0].nome = nome;
     userClient[0].idade = idade;
      
+    res.json(userClient[0]);
+    
+});
+
+
+app.delete('/user/:id', (req, res) => {
+    
+    const id = req.params.id;
+    let userClient = user.findIndex(user => user.id != id);
+
     res.json(userClient);
     
 });
