@@ -74,13 +74,14 @@ app.put("/user/:id", (req, res) => {
 
 
 app.delete('/user/:id', (req, res) => {
-    
+
     const id = req.params.id;
     let userClient = user.findIndex(user => user.id != id);
 
     res.json(userClient);
     
 });
+
 
 
 app.listen(3000, () => console.log("Servidor rodando na porta ", 3000));
