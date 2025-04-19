@@ -5,6 +5,7 @@ import swaggerUi from 'swagger-ui-express';
 import Routes from './routes.js';
 import swaggerOptions from './swagger.js';
 import bodyParser from 'body-parser';
+import pgp from 'pg-promise';
 
 
 const app = express();
@@ -18,6 +19,12 @@ app.use(cors(
 ));
 
 app.use(bodyParser.json());
+
+const pgPromise = pgp();
+const db = pgPromise("postgres://igorrm19:chunda123@localhost:5432/desastre");
+db.query('SELECT 1 + 1 AS result').then((result) => console.log(result))
+
+console.log(db) 
 
 
 const user = [
