@@ -1,3 +1,5 @@
+console.time("Tempo de execução");
+
 import express from 'express';
 import cors from 'cors';
 import swaggerJSDoc from 'swagger-jsdoc';
@@ -5,7 +7,7 @@ import swaggerUi from 'swagger-ui-express';
 import Routes from './routes.js';
 import swaggerOptions from './swagger.js';
 import bodyParser from 'body-parser';
-import pgp from 'pg-promise';
+import bancodeDados from './bancodeDados.js';
 
 
 const app = express();
@@ -18,13 +20,9 @@ app.use(cors(
     {origin: '*'}
 ));
 
+
 app.use(bodyParser.json());
-
-const pgPromise = pgp();
-const db = pgPromise("postgres://igorrm19:chunda123@localhost:5432/desastre");
-db.query('SELECT 1 + 1 AS result').then((result) => console.log(result))
-
-console.log(db) 
+app.use(bancodeDados)
 
 
 const user = [
@@ -92,4 +90,5 @@ app.delete('/user/:id', (req, res) => {
 
 
 app.listen(3000, () => console.log("Servidor rodando na porta ", 3000));
+console.timeEnd("Tempo de execução");
 
