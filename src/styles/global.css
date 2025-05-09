@@ -3,10 +3,14 @@
 @tailwind utilities;
 
 
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root{
+   --color-primary-body: rgb(17, 24, 39);
+   --color-primary-text: #ffffff;
+   --color-secondary-text: rgb(59, 130, 246);
+   --spacamento: 0.5rem;
+   --button-priamary: rgb(30 58 138);
+   --button-secondary-or-animation: rgb(37 99 235);
 }
+
+
 
