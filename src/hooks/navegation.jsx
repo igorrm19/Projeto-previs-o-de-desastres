@@ -7,7 +7,11 @@ function useHooksNavigation() {
         navigate("/");
     }
 
-    return {goToLogin};
+    const goToCadrasto = () => {
+        navigate("/cadastro");
+    }
+
+    return {goToLogin, goToCadrasto};
 }
 
 export default useHooksNavigation;
