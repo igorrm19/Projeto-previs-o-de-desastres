@@ -2,6 +2,7 @@ import BUTTON from "../../../components/button";
 import InputComponent from "../../../components/input";
 import InformationCadrasto from "../components/informationCadrasto";
 import useHooksNavigation from "../../../hooks/navegation";
+import FacebookButton from "../components/facebookButton";
 
 const LoginPage = () => {
   const { goToCadrasto } = useHooksNavigation();
@@ -13,7 +14,6 @@ const LoginPage = () => {
             <InformationCadrasto />
           </div>
           <div className="text-black flex flex-col justify-center items-center pr-6 bg-white w-full">
-            
             <div className="mb-10">
               <h1 className="text-4xl font-bold text-teal-600">Login</h1>
             </div>
@@ -26,15 +26,17 @@ const LoginPage = () => {
               <div>
                 <p>Senha:</p>
                 <InputComponent text="Digite sua senha" type="password" />
-                <a className="text-teal-700 mt-40 hover:text-blue-600 hover:underline" onClick={goToCadrasto}>cadastre-se</a>
+                <a
+                  className="text-teal-700 mt-40 hover:text-blue-600 hover:underline"
+                  onClick={goToCadrasto}
+                >
+                  cadastre-se
+                </a>
               </div>
-              <BUTTON
-                hPx="45px"
-                wPx="70%"
-                onClick={goToCadrasto}
-                text="Entrar"
-              />
+              <BUTTON onClick={goToCadrasto} text="Entrar" />
             </form>
+            <FacebookButton condicao={true} />
+            <FacebookButton condicao={false} />
           </div>
         </div>
       </div>
