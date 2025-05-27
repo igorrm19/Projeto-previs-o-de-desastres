@@ -7,8 +7,8 @@ function SVGFunction({ verdadeiro }) {
       <>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="50"
-          height="50"
+          width="0"
+          height="0"
           fill="currentColor"
           className="bi bi-facebook"
           viewBox="0 0 16 16"
