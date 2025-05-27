@@ -19,6 +19,7 @@ function InformationCadrasto() {
         </p>
         <div className="flex flex-col items-center mt-8">
           <BUTTON
+            width={"150px"}
             onClick={goToCadrasto}
             text="Cadastre-se"
           />
