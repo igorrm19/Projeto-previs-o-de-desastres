@@ -19,11 +19,11 @@ const LoginPage = () => {
               <h1 className="text-4xl font-bold text-teal-600">Login</h1>
             </div>
 
-            <form action="">
+           <form action="">
               <div>
                 <p>Email</p>
                 <InputComponent
-                  width={"100%"}
+                  width={"80%"}
                   text="Digite seu email"
                   type="email"
                 />
@@ -32,7 +32,7 @@ const LoginPage = () => {
               <div>
                 <p>Senha</p>
                 <InputComponent
-                  width={"100%"}
+                  width={"80%"}
                   text="Digite sua senha"
                   type="password"
                 />
