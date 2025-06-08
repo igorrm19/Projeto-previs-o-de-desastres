@@ -19,7 +19,7 @@ const LoginPage = () => {
               <h1 className="text-4xl font-bold text-teal-600">Login</h1>
             </div>
 
-            <form action="">
+           <form action="">
               <div>
                 <p>Email</p>
                 <InputComponent
@@ -41,7 +41,6 @@ const LoginPage = () => {
                   className="text-teal-700 mt-40 hover:text-blue-600 hover:underline"
                   onClick={goToCadrasto}
                 ></a>
-                <p>cadastre-se</p>
               </div>
 
               <BUTTON
@@ -64,6 +63,7 @@ const LoginPage = () => {
                   condicao={false}
                 />
               </div>
+
             </form>
           </div>
         </div>
@@ -73,3 +73,4 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
