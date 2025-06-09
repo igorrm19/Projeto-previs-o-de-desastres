@@ -23,7 +23,6 @@ const LoginPage = () => {
               <div>
                 <p>Email</p>
                 <InputComponent
-                  width={"100%"}
                   text="Digite seu email"
                   type="email"
                 />
@@ -32,7 +31,6 @@ const LoginPage = () => {
               <div>
                 <p>Senha</p>
                 <InputComponent
-                  width={"100%"}
                   text="Digite sua senha"
                   type="password"
                 />
