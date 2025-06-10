@@ -25,6 +25,7 @@ const LoginPage = () => {
                 <InputComponent
                   text="Digite seu email"
                   type="email"
+                   tipo={"email"}
                 />
               </div>
 
@@ -33,6 +34,7 @@ const LoginPage = () => {
                 <InputComponent
                   text="Digite sua senha"
                   type="password"
+                  tipo={"senha"}
                 />
 
                 <a

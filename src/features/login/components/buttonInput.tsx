@@ -1,12 +1,15 @@
 import objectVariaveisTailwind from "../../../objectsVariaveis/objVariaveisTailwand";
 import svgInputObject from "../func/svgInputObject";
 
-function buttonInput() {
+
+function buttonInput({ tipo }: { tipo: "email" | "senha" }) {
+  
   const paddingNumber = objectVariaveisTailwind.Input.paddingNumber;
   const bgColor = objectVariaveisTailwind.Input.bgColor;
   const textColor = objectVariaveisTailwind.Input.textColor;
-  const IconEmail = svgInputObject.email;
-  
+  const Email = svgInputObject.email;
+  const Senha = svgInputObject.senha;
+
   return (
     <>
       <button
@@ -17,7 +20,8 @@ function buttonInput() {
         }}
         className={`rounded-md border-none`}
       >
-        <IconEmail />
+        {tipo == "email" ? <Email /> : tipo == "senha" ? <Senha /> : null}
+
       </button>
     </>
   );
