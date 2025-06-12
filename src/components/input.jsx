@@ -1,36 +1,29 @@
 import PropTypes from "prop-types";
-import svgInputObject from "../features/login/func/svgInputObject"
+import objectVariaveisTailwind from "../objectsVariaveis/objVariaveisTailwand";
+import ButtonInput from "../features/login/components/buttonInput";
 
-function InputComponent({ type, text, width}) {
-  const paddingNumber = 4;
-  const bgColor = "transparent";
-  const textColor = "black"
-  const IconEmail = svgInputObject.email;
+function InputComponent({ type, text, tipo, tipoTwe}) {
+  const paddingNumber = objectVariaveisTailwind.Input.paddingNumber;
+  const bgColor = objectVariaveisTailwind.Input.bgColor;
+  const textColor = objectVariaveisTailwind.Input.textColor;
+
 
   return (
     <>
       <div className="flex align-center justify-center items-center mb-4 bg-white h-full w-full border-2 border-black rounded-md ">
-        <button
-          style={{
-            padding: `${paddingNumber * 0.25}rem`,
-            color: `${textColor}`,
-            bgColor: `${bgColor}`,
-          }}
-          className={`rounded-md border-none`}
-        >
-          <IconEmail />
-
-        </button>
+        <ButtonInput tipo={tipo} />
         <input
           style={{
             padding: `${paddingNumber * 0.25}rem`,
             color: `${textColor}`,
+            backgroundColor: `${bgColor}`,
           }}
-          className={`border-none h-full  ${bgColor} border-gray-300 rounded-md w-[${width}] rounded-xl click:border-blue-700 focus:border-blue-700 focus:outline-none`}
+          className={`border-none h-full  border-gray-300 rounded-md w-full rounded-xl click:border-blue-700 focus:border-blue-700 focus:outline-none`}
           type={type}
           placeholder={text}
         />
-      </div>
+        <ButtonInput tipo={tipoTwe} />
+        </div>
     </>
   );
 }
@@ -39,7 +32,8 @@ InputComponent.propTypes = {
   type: PropTypes.string,
   text: PropTypes.string,
   width: PropTypes.string,
-  iconButton: PropTypes.node,
+  tipo: PropTypes.string,
+  tipoTwe: PropTypes.string
 };
 
 export default InputComponent;
