@@ -34,7 +34,8 @@ const LoginPage = () => {
                 <InputComponent
                   text="Digite sua senha"
                   type="password"
-                  tipo={"senha"}
+                  tipo={"cadiado"}
+                  tipoTwe={"senha"}
                 />
 
                 <a
