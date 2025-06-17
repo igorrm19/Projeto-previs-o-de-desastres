@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import objectVariaveisTailwind from "../objectsVariaveis/objVariaveisTailwand";
 import ButtonInput from "../features/login/components/buttonInput";
 
-function InputComponent({ type, text, tipo, tipoTwe}) {
+function InputComponent({ type, text, tipo, tipoTwe, onClick }) {
   const paddingNumber = objectVariaveisTailwind.Input.paddingNumber;
   const bgColor = objectVariaveisTailwind.Input.bgColor;
   const textColor = objectVariaveisTailwind.Input.textColor;
@@ -11,7 +11,7 @@ function InputComponent({ type, text, tipo, tipoTwe}) {
   return (
     <>
       <div className="flex align-center justify-center items-center mb-4 bg-white h-full w-full border-2 border-black rounded-md ">
-        <ButtonInput tipo={tipo} />
+        <ButtonInput type="button" tipo={tipo} />
         <input
           style={{
             padding: `${paddingNumber * 0.25}rem`,
@@ -22,7 +22,7 @@ function InputComponent({ type, text, tipo, tipoTwe}) {
           type={type}
           placeholder={text}
         />
-        <ButtonInput tipo={tipoTwe} />
+        <ButtonInput onClick={onClick} type="button" tipo={tipoTwe} />
         </div>
     </>
   );
@@ -31,9 +31,9 @@ function InputComponent({ type, text, tipo, tipoTwe}) {
 InputComponent.propTypes = {
   type: PropTypes.string,
   text: PropTypes.string,
-  width: PropTypes.string,
   tipo: PropTypes.string,
-  tipoTwe: PropTypes.string
+  tipoTwe: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default InputComponent;

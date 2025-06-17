@@ -3,9 +3,20 @@ import InputComponent from "../../../components/input";
 import InformationCadrasto from "../components/informationCadrasto";
 import useHooksNavigation from "../../../hooks/navegation";
 import SocialMidiaButton from "../components/SocialMidiaButton";
+import { useState } from "react";
 
 const LoginPage = () => {
   const { goToCadrasto } = useHooksNavigation();
+
+   let [type, setType] = useState("password");
+
+   function handleButtonClick() {
+    setType("text");
+    if(type === "text"){
+      setType("password");
+    }
+  }
+
   return (
     <>
       <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center flex-col space-y-7">
@@ -25,7 +36,7 @@ const LoginPage = () => {
                 <InputComponent
                   text="Digite seu email"
                   type="email"
-                   tipo={"email"}
+                  tipo={"email"}
                 />
               </div>
 
@@ -33,9 +44,10 @@ const LoginPage = () => {
                 <p>Senha</p>
                 <InputComponent
                   text="Digite sua senha"
-                  type="password"
+                  type={type}
                   tipo={"cadiado"}
                   tipoTwe={"senha"}
+                  onClick={handleButtonClick}
                 />
 
                 <a
