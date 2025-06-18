@@ -5,10 +5,10 @@ import svgSenhaVisualizar from "../../../components/svg/svgSenhaVisualizar";
 
 
 const svgInputObject = [
-  { email: svgEmail },
-  { senha: svgSenha },
-  { senhaCadiado: svgSenhaCadiado },
-  { senhaVisualizar: svgSenhaVisualizar }
+  { tipo: "svgEmail", component: svgEmail },
+  { tipo: "svgNotView", component: svgSenha },
+  { tipo: "svgCadiado", component: svgSenhaCadiado },
+  { tipo: "svgView", component: svgSenhaVisualizar }
 ] as const;
 
 export default svgInputObject;

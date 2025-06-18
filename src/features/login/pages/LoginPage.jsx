@@ -9,11 +9,15 @@ const LoginPage = () => {
   const { goToCadrasto } = useHooksNavigation();
 
    let [type, setType] = useState("password");
+   let [confg, setConfg] = useState("svgNotView");
 
    function handleButtonClick() {
     setType("text");
+    setConfg("svgView");
+
     if(type === "text"){
       setType("password");
+      setConfg("svgNotView");
     }
   }
 
@@ -36,7 +40,7 @@ const LoginPage = () => {
                 <InputComponent
                   text="Digite seu email"
                   type="email"
-                  tipo={"email"}
+                  tipo={"svgEmail"}
                 />
               </div>
 
@@ -45,8 +49,8 @@ const LoginPage = () => {
                 <InputComponent
                   text="Digite sua senha"
                   type={type}
-                  tipo={"cadiado"}
-                  tipoTwe={"senha"}
+                  tipo={"svgCadiado"}
+                  tipoTwe={confg}
                   onClick={handleButtonClick}
                 />
 
