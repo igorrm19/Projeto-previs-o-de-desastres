@@ -1,11 +1,14 @@
 
 import express from 'express';
-import { Services } from '../config/services.js';
+import morgan from 'morgan';
 import httpProxy from 'http-proxy-middleware';
 const { createProxyMiddleware } = httpProxy;
 
+import { Services } from '../config/services.js';
 
 const router = express.Router();
+
+router.use(morgan('dev'));
 
 router.use('/auth', createProxyMiddleware({
   target: Services.auth,
