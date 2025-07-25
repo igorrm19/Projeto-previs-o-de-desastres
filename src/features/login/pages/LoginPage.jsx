@@ -5,17 +5,25 @@ import useHooksNavigation from "../../../hooks/navegation";
 import SocialMidiaButton from "../components/SocialMidiaButton";
 import { useState } from "react";
 
+
 const LoginPage = () => {
   const { goToCadrasto } = useHooksNavigation();
 
    let [type, setType] = useState("password");
+   let [confg, setConfg] = useState("svgNotView");
 
-   function handleButtonClick() {
+   function handleButtonClick(){
     setType("text");
+    setConfg("svgView");
+
     if(type === "text"){
       setType("password");
+      setConfg("svgNotView");
     }
   }
+
+  
+ 
 
   return (
     <>
@@ -30,23 +38,23 @@ const LoginPage = () => {
               <h1 className="text-4xl font-bold text-teal-600">Login</h1>
             </div>
 
-           <form action="">
+           <form action="" >
               <div>
-                <p>Email</p>
+                <label className="text-gray-900">Email</label>
                 <InputComponent
                   text="Digite seu email"
-                  type="email"
-                  tipo={"email"}
+                  type="email" 
+                  tipo={"svgEmail"}
                 />
               </div>
 
               <div>
-                <p>Senha</p>
+                <label className="text-gray-900">Senha</label>
                 <InputComponent
                   text="Digite sua senha"
-                  type={type}
-                  tipo={"cadiado"}
-                  tipoTwe={"senha"}
+                  type={type} 
+                  tipo={"svgCadiado"}
+                  tipoTwe={confg}
                   onClick={handleButtonClick}
                 />
 

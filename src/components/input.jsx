@@ -21,8 +21,10 @@ function InputComponent({ type, text, tipo, tipoTwe, onClick }) {
           className={`border-none h-full  border-gray-300 rounded-md w-full rounded-xl click:border-blue-700 focus:border-blue-700 focus:outline-none`}
           type={type}
           placeholder={text}
+          maxLength={50}
+          minLength={3}
         />
-        <ButtonInput onClick={onClick} type="button" tipo={tipoTwe} />
+        <ButtonInput onClick={onClick}  type="button" tipo={tipoTwe} />
         </div>
     </>
   );
