@@ -14,7 +14,7 @@ function buttonInput({
   onClick,
 }: { tipo: TipoInput } & { tipoTwe: TipoInput } & {
   type: "button" | "submit" | "reset";
-} & { onClick?: () => void }) {
+} & { onClick?: () => void } ) {
 
   const paddingNumber = objectVariaveisTailwind.Input.paddingNumber;
   const bgColor = objectVariaveisTailwind.Input.bgColor;
