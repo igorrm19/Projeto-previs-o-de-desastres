@@ -33,6 +33,7 @@ function buttonInput({
           color: `${textColor}`,
           backgroundColor: `${bgColor}`,
         }}
+        
         className={`rounded-md border-none`}
         onClick={onClick}
       >
