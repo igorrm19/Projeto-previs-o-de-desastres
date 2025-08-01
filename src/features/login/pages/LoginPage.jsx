@@ -4,26 +4,55 @@ import InformationCadrasto from "../components/informationCadrasto";
 import useHooksNavigation from "../../../hooks/navegation";
 import SocialMidiaButton from "../components/SocialMidiaButton";
 import { useState } from "react";
-
+import { useRef } from "react";
+import axios from "axios";
 
 const LoginPage = () => {
   const { goToCadrasto } = useHooksNavigation();
 
-   let [type, setType] = useState("password");
-   let [confg, setConfg] = useState("svgNotView");
+  const emailRef = useRef(null);
+  const senhaRef = useRef(null);
 
-   function handleButtonClick(){
+  let [type, setType] = useState("password");
+  let [confg, setConfg] = useState("svgNotView");
+
+  function handleButtonClick() {
     setType("text");
     setConfg("svgView");
 
-    if(type === "text"){
+    if (type === "text") {
       setType("password");
       setConfg("svgNotView");
     }
   }
 
-  
- 
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    let email = emailRef.current.value;
+    let senha = senhaRef.current.value;
+
+    console.log("enviar");
+node --loader ts-node/esm src/app.ts
+    axios
+      .post("http://localhost:3000/auth/login", { email, senha })
+      .then((response) => {
+        console.log("Login successful:", response.data);
+        alert("Login successful!");
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.error("Login failed:", error.response.data);
+          alert("falha no login, verifique suas credenciais.");
+        } else if (error.request) {
+          console.error("Login failed:", error.request);
+          alert("falha no login, sem resposta do servidor.");
+        } else {
+          console.error("Login failed:", error);
+          alert("falha no login, erro desconhecido");
+        }
+      });
+  }
 
   return (
     <>
@@ -38,13 +67,14 @@ const LoginPage = () => {
               <h1 className="text-4xl font-bold text-teal-600">Login</h1>
             </div>
 
-           <form action="" >
+            <form action="">
               <div>
                 <label className="text-gray-900">Email</label>
                 <InputComponent
                   text="Digite seu email"
-                  type="email" 
+                  type="email"
                   tipo={"svgEmail"}
+                  typeRef={emailRef}
                 />
               </div>
 
@@ -52,10 +82,12 @@ const LoginPage = () => {
                 <label className="text-gray-900">Senha</label>
                 <InputComponent
                   text="Digite sua senha"
-                  type={type} 
+                  type={type}
                   tipo={"svgCadiado"}
                   tipoTwe={confg}
+                  typeRef={senhaRef}
                   onClick={handleButtonClick}
+                  ty
                 />
 
                 <a
@@ -65,9 +97,12 @@ const LoginPage = () => {
               </div>
 
               <BUTTON
+                onClick={(event) => {
+                  handleSubmit(event);
+                  goToCadrasto();
+                }}
                 marginBottom={"4"}
                 width={"100%"}
-                onClick={goToCadrasto}
                 text="Entrar"
               />
 
@@ -84,7 +119,6 @@ const LoginPage = () => {
                   condicao={false}
                 />
               </div>
-
             </form>
           </div>
         </div>
@@ -94,4 +128,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
