@@ -3,20 +3,31 @@ import express from 'express';
 const app = express();
 app.use(express.json());
 
-const dados: any[] = [];  
+interface User {
+  email: string;
+  senha: string;
+}
 
-app.get('/login', (req, res) => {  
-  res.send('Auth Service is healthy');
+
+const user: User[] = [
+  { email: 'igor@gmail.com', senha: '123' },
+  { email: 'jane@gmail.com', senha: '456' }
+]
+
+
+app.post('/login', (req, res) => {
+  const { email, senha } = req.body;
+
+  const userFound = user.find(u => u.email === email && u.senha === senha);
+
+  if (userFound) {
+    res.status(200).json({ message: 'Login bem-sucedido' });
+  } else {
+    res.status(401).json({ message: 'Credenciais inválidas' });
+  }
 });
 
-app.post("/login", (req, res) => {
-  const body = req.body;
-
-  dados.push(body);
-  res.status(201).send({ message: 'Login successful', data: body });
-  console.log(body);
-})
 
 app.listen(3001, () => {
-  console.log('Auth Service is running on port 3001');
-});
+  console.log('server rodando na port 3001')
+})
