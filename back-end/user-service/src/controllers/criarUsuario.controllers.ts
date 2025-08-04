@@ -9,11 +9,6 @@ const criarUsuario = async(req: Request, res: Response) => {
 
         res.json({
         mensagem: 'Usuário criado com sucesso',
-        usuario: {
-            nome,
-            email,
-            senha
-        },
         user: req.body,
         tempo: new Date()
     });
