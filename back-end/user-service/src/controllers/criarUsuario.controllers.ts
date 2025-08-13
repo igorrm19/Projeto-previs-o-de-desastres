@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import pool from "../models/db.models";
 
+
 const criarUsuario = async(req: Request, res: Response) => {
     const {nome, email, senha} = req.body;
 
