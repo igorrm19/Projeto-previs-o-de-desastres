@@ -1,7 +1,11 @@
-import users from "../models/user.models";
+import  users  from "../models/user.models";
+
+const user = users.data;
+
 
 function validarLogin(email: string, senha: string): boolean {
-  return users.some(user => user.email === email && user.senha === senha);
+  return user.some(user => user.email === email && user.senha === senha);
+
 }
 
 export default validarLogin;
