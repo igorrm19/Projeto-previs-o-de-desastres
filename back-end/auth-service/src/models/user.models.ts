@@ -2,8 +2,6 @@
 import { z } from 'zod';
 import { Request, Response } from 'express';
 import router from '../routes/auth.routes';
-//npx ts-node --esm user.models.ts
-
 
 router.get('/login/auth', (req: Request, res: Response) => {
 
