@@ -1,7 +1,7 @@
 //node --loader ts-node/esm src/app.ts
 
 import express from 'express';
-import router from './routes/auth.routes';
+import router from './routes/auth.routes.js';
 
 
 const app = express();

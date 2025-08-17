@@ -1,11 +1,11 @@
-import  users  from "../models/user.models";
-
-const user = users.data;
+import { validarUser } from "../routes/auth.routes.js";
 
 
 function validarLogin(email: string, senha: string): boolean {
-  return user.some(user => user.email === email && user.senha === senha);
+  return validarUser.some(user => user.email === email && user.senha === senha);
 
 }
+
+
 
 export default validarLogin;
