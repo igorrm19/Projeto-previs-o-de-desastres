@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import validarLogin from "../services/auth.services";
+import validarLogin from "../services/auth.services.js";
 
 function login(req: Request, res: Response): void {
   const { email, senha } = req.body;
