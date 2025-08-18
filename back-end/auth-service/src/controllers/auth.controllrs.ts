@@ -1,16 +1,40 @@
 import { Request, Response } from "express";
-import validarLogin from "../services/auth.services.js";
+import { userSchelmaArray, validarUser } from "../models/schelmaZod.js";
 
-function login(req: Request, res: Response): void {
-  const { email, senha } = req.body;
 
-  const userFound: boolean = validarLogin(email, senha);
-
-  if (userFound) {
-    res.status(200).json({ message: "Login bem-sucedido" });
-  } else {
-    res.status(401).json({ message: "Credenciais inválidas" });
+function authCadrasto(req: Request, res: Response){
+  let ConsoleTextDados = 'dados feio em formato de objetos';
+  let dados = req.body; 
+  
+  if(!Array.isArray(dados)){
+    console.log(ConsoleTextDados, dados);
+    dados = [dados];
   }
+
+  const user = userSchelmaArray.safeParse(dados)
+
+  if(user.success){
+    console.log("Usuario validado com sucesso", user);
+       validarUser.length = 0;
+       validarUser.push(...user.data);
+
+       res.json({
+        mensagem: "Usuario validado com sucesso",
+        user: user.data,
+        body: req.body
+       }).status(200);
+
+  } else {
+    console.error("Erro ao validar usuario", user.error);
+
+    res.json({
+     mensagem: "Erro ao validar usuario",
+     user: user.error
+    }).status(404);
+
+  }
+
 }
 
-export default login;
+
+export default authCadrasto;

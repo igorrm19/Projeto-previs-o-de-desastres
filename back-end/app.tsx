@@ -1,1 +1,0 @@
-// node --loader ts-node/esm src/app.ts
