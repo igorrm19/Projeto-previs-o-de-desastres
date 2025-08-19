@@ -33,7 +33,7 @@ const LoginPage = () => {
     let senha = senhaRef.current.value;
 
     console.log("enviar");
-node --loader ts-node/esm src/app.ts
+    
     axios
       .post("http://localhost:3000/auth/login", { email, senha })
       .then((response) => {

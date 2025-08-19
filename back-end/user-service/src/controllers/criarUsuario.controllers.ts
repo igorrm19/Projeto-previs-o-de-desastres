@@ -3,12 +3,12 @@ import pool from "../models/db.models";
 
 
 const criarUsuario = async(req: Request, res: Response) => {
-    const {nome, email, senha} = req.body;
+    const user = req.body;
 
     try{
-        await pool.query('insert into users (nome, email, senha) values ($1, $2, $3)', [nome, email, senha]);
+        await pool.query('insert into users (nome, email, senha) values ($1, $2, $3)', [user.nome, user.email, user.senha]);
 
-        res.json({
+        res.status(201).json({
         mensagem: 'Usuário criado com sucesso',
         user: req.body,
         tempo: new Date()
