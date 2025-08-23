@@ -1,4 +1,4 @@
-import { Request,  response,  Response } from "express";
+import { Request, response,  Response } from "express";
 import { userSchelmaArray, validarUser } from "../models/schelmaZod.js";
 import axios from 'axios'
 
