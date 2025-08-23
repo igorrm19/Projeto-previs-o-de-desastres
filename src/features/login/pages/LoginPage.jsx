@@ -31,11 +31,12 @@ const LoginPage = () => {
 
     let email = emailRef.current.value;
     let senha = senhaRef.current.value;
+    let nome = 'igor'
 
     console.log("enviar");
-    
+
     axios
-      .post("http://localhost:3000/auth/login", { email, senha })
+      .post("http://localhost:3000/auth/login", { email, senha, nome })
       .then((response) => {
         console.log("Login successful:", response.data);
         alert("Login successful!");
