@@ -11,7 +11,14 @@ function useHooksNavigation() {
         navigate("/cadastro");
     }
 
-    return {goToLogin, goToCadrasto};
+    const goToSerech = () => {
+        navigate("/searech")
+    }
+
+    return {goToLogin, goToCadrasto, goToSerech};
 }
 
 export default useHooksNavigation;
+
+
+

@@ -8,7 +8,7 @@ import { useRef } from "react";
 import axios from "axios";
 
 const LoginPage = () => {
-  const { goToCadrasto } = useHooksNavigation();
+  const { goToCadrasto, goToSerech } = useHooksNavigation();
 
   const emailRef = useRef(null);
   const senhaRef = useRef(null);
@@ -26,19 +26,19 @@ const LoginPage = () => {
     }
   }
 
-  function handleSubmit(event) {
+ async function handleSubmit(event) {
     event.preventDefault();
 
     let email = emailRef.current.value;
     let senha = senhaRef.current.value;
-    let nome = 'igor'
 
     console.log("enviar");
 
-    axios
-      .post("http://localhost:3000/auth/login", { email, senha, nome })
+    await axios
+      .post("http://localhost:3000/user/validation", { email, senha })
       .then((response) => {
         console.log("Login successful:", response.data);
+        goToSerech();
         alert("Login successful!");
       })
       .catch((error) => {
@@ -60,7 +60,10 @@ const LoginPage = () => {
       <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center flex-col space-y-7">
         <div className="w-[80%] max-w-9xl mx-auto mt-12  min-h-[700px]  shadow-xl flex">
           <div className="flex w-full flex-col justify-center items-center pr-6 bg-teal-700 md:flex hidden">
-            <InformationCadrasto />
+            <InformationCadrasto 
+               text="cadrastar-se"
+               onClick={goToCadrasto}
+            />
           </div>
 
           <div className="text-black flex flex-col justify-center items-center pr-6 bg-white w-full">
@@ -99,8 +102,7 @@ const LoginPage = () => {
 
               <BUTTON
                 onClick={(event) => {
-                  handleSubmit(event);
-                  goToCadrasto();
+                  handleSubmit(event);    
                 }}
                 marginBottom={"4"}
                 width={"100%"}
