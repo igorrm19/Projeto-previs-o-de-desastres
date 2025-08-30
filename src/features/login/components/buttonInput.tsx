@@ -1,7 +1,7 @@
 import objectVariaveisTailwind from "../../../objectsVariaveis/objVariaveisTailwand";
 import svgInputObject from "../func/svgInputObject";
 
-let tipos = ["svgEmail", "svgNotView", "svgCadiado", "svgView"] as const;
+let tipos = ["svgEmail", "svgNotView", "svgCadiado", "svgView", "svgNome"] as const;
 type tipos = {
   SVG: (typeof svgInputObject)[number];
 };

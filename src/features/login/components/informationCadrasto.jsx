@@ -1,9 +1,8 @@
 import BUTTON from "../../../components/button";
 import SVGIlustration from "../../error/components/svdIlustration";
-import useHooksNavigation from "../../../hooks/navegation";
+import PropTypes from "prop-types";
 
-function InformationCadrasto() {
-  const { goToCadrasto } = useHooksNavigation();
+function InformationCadrasto({text, onClick}) {
 
   return (
     <>
@@ -20,13 +19,18 @@ function InformationCadrasto() {
         <div className="flex flex-col items-center mt-8">
           <BUTTON
             width={"150px"}
-            onClick={goToCadrasto}
-            text="Cadastre-se"
+            onClick={onClick}
+            text={text}
           />
         </div>
       </div>
     </>
   );
 }
+
+InformationCadrasto.propTypes = {
+  text: PropTypes.string,
+  onClick: PropTypes.func
+};
 
 export default InformationCadrasto;
