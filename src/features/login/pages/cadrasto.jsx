@@ -1,4 +1,3 @@
-
 import BUTTON from "../../../components/button";
 import InputComponent from "../../../components/input";
 import InformationCadrasto from "../components/informationCadrasto";
@@ -6,11 +5,10 @@ import useHooksNavigation from "../../../hooks/navegation";
 import SocialMidiaButton from "../components/SocialMidiaButton";
 import { useState } from "react";
 import { useRef } from "react";
-import axios from "axios";
+import AxiosFunc from "../../../services/axiosFunc";
 
 const cadrastoPage = () => {
-  const { goToLogin } = useHooksNavigation();
-
+  const { goToSerech, goToLogin } = useHooksNavigation();
 
   const emailRef = useRef(null);
   const senhaRef = useRef(null);
@@ -18,7 +16,6 @@ const cadrastoPage = () => {
 
   let [type, setType] = useState("password");
   let [confg, setConfg] = useState("svgNotView");
-
 
   function handleButtonClick() {
     setType("text");
@@ -30,7 +27,7 @@ const cadrastoPage = () => {
     }
   }
 
- async function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     let nome = nomeRef.current.value;
@@ -39,25 +36,16 @@ const cadrastoPage = () => {
 
     console.log("enviar");
 
-    await axios
-      .post("http://localhost:3000/user/validation", { nome, email, senha })
-      .then((response) => {
-        console.log("Cadrasto successful:", response.data);
-        goToLogin();
-        alert("Cadrasto successful!");
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.error("Cadrasto failed:", error.response.data);
-          alert("falha no cadrasto, verifique suas credenciais.");
-        } else if (error.request) {
-          console.error("Cadrasto failed:", error.request);
-          alert("falha no Cadrasto, sem resposta do servidor.");
-        } else {
-          console.error("Cadrasto failed:", error);
-          alert("falha no cadrasto, erro desconhecido");
+    await AxiosFunc(
+      "http://localhost:3000/user/validation",
+      { nome, email, senha },
+       (status) => {
+        if (status) {
+          console.log("Enviado");
+          goToSerech();
         }
-      });
+      }
+    );
   }
 
   return (
@@ -65,10 +53,7 @@ const cadrastoPage = () => {
       <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center flex-col space-y-7">
         <div className="w-[80%] max-w-9xl mx-auto mt-12  min-h-[700px]  shadow-xl flex">
           <div className="flex w-full flex-col justify-center items-center pr-6 bg-teal-700 md:flex hidden">
-            <InformationCadrasto
-             text="Login" 
-             onClick={goToLogin}
-             />
+            <InformationCadrasto text="Login" onClick={goToLogin} />
           </div>
 
           <div className="text-black flex flex-col justify-center items-center pr-6 bg-white w-full">
@@ -117,7 +102,7 @@ const cadrastoPage = () => {
 
               <BUTTON
                 onClick={(event) => {
-                  handleSubmit(event);    
+                  handleSubmit(event);
                 }}
                 marginBottom={"4"}
                 width={"100%"}
