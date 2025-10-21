@@ -1,9 +1,12 @@
-import { useNavigate} from "react-router-dom";
+import { NavigateFunction, useNavigate} from "react-router-dom";
 
-function useHooksNavigation() { 
-    const navigate = useNavigate();
 
-    const goToLogin = () => {
+function useHooksNavigation(): any {
+    
+
+    const navigate: NavigateFunction = useNavigate();
+
+    const goToLogin = (): void => {
         navigate("/");
     }
 

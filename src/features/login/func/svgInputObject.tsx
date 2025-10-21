@@ -10,7 +10,7 @@ const svgInputObject = [
   { tipo: "svgNotView", component: svgSenha },
   { tipo: "svgCadiado", component: svgSenhaCadiado },
   { tipo: "svgView", component: svgSenhaVisualizar },
-  {tipo: "svgNome", component: svgNome}
+  { tipo: "svgNome", component: svgNome}
 ] as const;
 
 export default svgInputObject;

@@ -5,7 +5,7 @@ import useHooksNavigation from "../../../hooks/navegation";
 import SocialMidiaButton from "../components/SocialMidiaButton";
 import { useState } from "react";
 import { useRef } from "react";
-import axios from "axios";
+import AxiosFunc from "../../../services/axiosFunc";
 
 const LoginPage = () => {
   const { goToCadrasto, goToSerech } = useHooksNavigation();
@@ -34,25 +34,17 @@ const LoginPage = () => {
 
     console.log("enviar");
 
-    await axios
-      .post("http://localhost:3000/user/validation", { email, senha })
-      .then((response) => {
-        console.log("Login successful:", response.data);
-        goToSerech();
-        alert("Login successful!");
-      })
-      .catch((error) => {
-        if (error.response) {
-          console.error("Login failed:", error.response.data);
-          alert("falha no login, verifique suas credenciais.");
-        } else if (error.request) {
-          console.error("Login failed:", error.request);
-          alert("falha no login, sem resposta do servidor.");
-        } else {
-          console.error("Login failed:", error);
-          alert("falha no login, erro desconhecido");
-        }
-      });
+     await AxiosFunc(
+          "http://localhost:3000/user/validation",
+          { email, senha },
+           (status) => {
+            if (status) {
+              console.log("Enviado");
+              goToSerech();
+            }
+          }
+        );
+    
   }
 
   return (
@@ -73,7 +65,6 @@ const LoginPage = () => {
 
             <form action="">
               <div>
-                <label className="text-gray-900">Email</label>
                 <InputComponent
                   text="Digite seu email"
                   type="email"
@@ -83,7 +74,6 @@ const LoginPage = () => {
               </div>
 
               <div>
-                <label className="text-gray-900">Senha</label>
                 <InputComponent
                   text="Digite sua senha"
                   type={type}
