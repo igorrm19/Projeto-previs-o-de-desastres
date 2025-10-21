@@ -6,16 +6,17 @@ import SocialMidiaButton from "../components/SocialMidiaButton";
 import { useState } from "react";
 import { useRef } from "react";
 import AxiosFunc from "../../../services/axiosFunc";
+import TiposAlerta from "../../../components/alerta";
 
 const cadrastoPage = () => {
   const { goToSerech, goToLogin } = useHooksNavigation();
 
-  const emailRef = useRef(null);
-  const senhaRef = useRef(null);
-  const nomeRef = useRef(null);
+  const nomeRef = useRef<HTMLInputElement | null>(null);
+  const emailRef = useRef<HTMLInputElement | null>(null);
+  const senhaRef = useRef<HTMLInputElement | null>(null);
 
-  let [type, setType] = useState("password");
-  let [confg, setConfg] = useState("svgNotView");
+  let [type, setType] = useState<"password" | "text">("password");
+  let [confg, setConfg] = useState<"svgNotView" | "svgView">("svgNotView");
 
   function handleButtonClick() {
     setType("text");
@@ -27,19 +28,19 @@ const cadrastoPage = () => {
     }
   }
 
-  async function handleSubmit(event) {
+  async function handleSubmit(event: any) {
     event.preventDefault();
 
-    let nome = nomeRef.current.value;
-    let email = emailRef.current.value;
-    let senha = senhaRef.current.value;
+    let nome = nomeRef.current?.value;
+    let email = emailRef.current?.value
+    let senha = senhaRef.current?.value;
 
     console.log("enviar");
 
     await AxiosFunc(
       "http://localhost:3000/user/validation",
       { nome, email, senha },
-       (status) => {
+      (status) => {
         if (status) {
           console.log("Enviado");
           goToSerech();
@@ -51,6 +52,7 @@ const cadrastoPage = () => {
   return (
     <>
       <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center flex-col space-y-7">
+        <TiposAlerta tipo="sucesso" />
         <div className="w-[80%] max-w-9xl mx-auto mt-12  min-h-[700px]  shadow-xl flex">
           <div className="flex w-full flex-col justify-center items-center pr-6 bg-teal-700 md:flex hidden">
             <InformationCadrasto text="Login" onClick={goToLogin} />
@@ -63,7 +65,6 @@ const cadrastoPage = () => {
 
             <form action="">
               <div>
-                <label className="text-gray-900">Email</label>
                 <InputComponent
                   text="Digite seu nome"
                   type="text"
@@ -73,7 +74,6 @@ const cadrastoPage = () => {
               </div>
 
               <div>
-                <label className="text-gray-900">Email</label>
                 <InputComponent
                   text="Digite seu email"
                   type="email"
@@ -83,7 +83,6 @@ const cadrastoPage = () => {
               </div>
 
               <div>
-                <label className="text-gray-900">Senha</label>
                 <InputComponent
                   text="Digite sua senha"
                   type={type}
@@ -91,7 +90,6 @@ const cadrastoPage = () => {
                   tipoTwe={confg}
                   typeRef={senhaRef}
                   onClick={handleButtonClick}
-                  ty
                 />
 
                 <a

@@ -1,9 +1,9 @@
 import axios from "axios";
 
 
-const AxiosFunc = async (url: string, dados: object, callback: (status: boolean) => void) => {
+const AxiosFunc = (url: string, dados: Record<string, any>, callback: (status: boolean) => void) => {
     let status = false;
-    return await axios.post(url, dados).then((response) => {
+    return axios.post(url, dados).then((response) => {
 
         console.log("Ddos enviados com sucesso ", response.data);
         alert("deu certo")
