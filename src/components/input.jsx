@@ -18,7 +18,7 @@ function InputComponent({ type, text, tipo, tipoTwe, onClick, typeRef }) {
             color: `${textColor}`,
             backgroundColor: `${bgColor}`,
           }}
-          className={`border-none h-full  border-gray-300 rounded-md w-full rounded-xl click:border-blue-700 focus:border-blue-700 focus:outline-none`}
+          className={`border-none h-full  border-gray-300 rounded-md w-full  click:border-blue-700 focus:border-blue-700 focus:outline-none`}
           type={type}
           placeholder={text}
           maxLength={50}
